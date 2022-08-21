@@ -17,9 +17,9 @@ def add(
     :param duration: dict with keys "years", "months", "weeks", "days", "hours", "minutes", "seconds"
     :return: datetime object
     """
-    if type(date) != datetime:
+    if not isinstance(date, datetime):
         raise TypeError("date must be of type datetime")
-    if type(duration) != dict:
+    if not isinstance(duration, dict):
         raise TypeError("duration must be of type dict")
     if not any(duration.values()):
         # all values are None or False-y

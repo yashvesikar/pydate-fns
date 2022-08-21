@@ -8,9 +8,9 @@ def add_days(date: datetime, days: int) -> datetime:
     :param days: The number of days to add.
     :return:
     """
-    if type(date) != datetime:
+    if not isinstance(date, datetime):
         raise TypeError("date must be of type datetime")
-    if type(days) != int:
+    if not isinstance(days, int):
         raise TypeError("days must be of type int")
     if days < 0:
         raise ValueError("days must be greater than 0")

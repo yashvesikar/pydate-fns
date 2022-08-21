@@ -14,3 +14,5 @@ def to_date(dirty_date: Union[int, float, Decimal]) -> datetime:
         return datetime.fromtimestamp(dirty_date)
     elif isinstance(dirty_date, Decimal):
         return datetime.fromtimestamp(float(dirty_date))
+    else:
+        raise TypeError("dirty_date must be of type int, float, or Decimal")

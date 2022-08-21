@@ -8,9 +8,9 @@ def add_months(date: datetime, months: int) -> datetime:
     :param months: The number of months to add.
     :return:
     """
-    if type(date) != datetime:
+    if not isinstance(date, datetime):
         raise TypeError("date must be of type datetime")
-    if type(months) != int:
+    if not isinstance(months, int):
         raise TypeError("months must be of type int")
     if months < 0:
         raise ValueError("months must be greater than 0")

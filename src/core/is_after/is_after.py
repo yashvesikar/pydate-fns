@@ -9,4 +9,7 @@ def is_after(date: datetime, date_to_compare: datetime) -> bool:
     :return: bool
     """
 
+    if not isinstance(date, datetime) or not isinstance(date_to_compare, datetime):
+        raise TypeError("date and date_to_compare must be of type datetime")
+
     return date.timestamp() > date_to_compare.timestamp()

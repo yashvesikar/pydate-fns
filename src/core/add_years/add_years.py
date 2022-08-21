@@ -8,9 +8,9 @@ def add_years(date: datetime, years: int) -> datetime:
     :param years: The number of weeks to add.
     :return:
     """
-    if type(date) != datetime:
+    if not isinstance(date, datetime):
         raise TypeError("date must be of type datetime")
-    if type(years) != int:
+    if not isinstance(years, int):
         raise TypeError("years must be of type int")
     if years < 0:
         raise ValueError("years must be greater than 0")
