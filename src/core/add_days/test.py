@@ -1,6 +1,7 @@
-from datetime import datetime
 import unittest
-from add_days import add_days
+from datetime import datetime
+
+from core.add_days.add_days import add_days
 
 
 class TestAddDays(unittest.TestCase):

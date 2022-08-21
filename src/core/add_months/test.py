@@ -1,6 +1,7 @@
-from datetime import datetime
 import unittest
-from add_months import add_months
+from datetime import datetime
+
+from core.add_months.add_months import add_months
 
 
 class TestAddMonths(unittest.TestCase):
@@ -12,6 +13,6 @@ class TestAddMonths(unittest.TestCase):
 
         self.assertEqual(add_months(datetime(2014, 8, 1), 5), datetime(2015, 1, 1))
 
-        
+
 if __name__ == "__main__":
     unittest.main()

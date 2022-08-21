@@ -1,6 +1,7 @@
 import unittest
 from datetime import datetime
-from add import add
+
+from core.add.add import add
 
 
 class TestAdd(unittest.TestCase):
