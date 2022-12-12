@@ -12,4 +12,5 @@ from pydate.closest_to import *
 from pydate.is_after import *
 from pydate.is_before import *
 from pydate.start_of_day import *
+from pydate.sub_months import *
 from pydate.to_date import *

@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 def add_months(date: datetime, amount: int) -> datetime:
@@ -16,4 +16,11 @@ def add_months(date: datetime, amount: int) -> datetime:
     _months = date.month + amount
     _years = date.year + _months // 12
     _months = _months % 12
+
+    # If the day of the month is greater than the number of days in the new month,
+    # the day of the month is set to the last day of the new month.
+    end_of_desired_month = datetime(_years, _months + 1, 1) - timedelta(days=1)
+    if date.day > end_of_desired_month.day:
+        return end_of_desired_month
+
     return date.replace(year=_years, month=_months)

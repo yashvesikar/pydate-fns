@@ -15,3 +15,6 @@ create-module: ## example: make create-module module=is_before
 
 test-install: 
 	python -c "import pydate"
+
+test: ## Run tests
+	pytest -v
