@@ -2,6 +2,8 @@
 __version__ = "0.0.1"
 
 from pydate.add import *
+from pydate.add_milliseconds import *
+from pydate.add_hours import *
 from pydate.add_days import *
 from pydate.add_weeks import *
 from pydate.add_months import *

@@ -1,18 +1,18 @@
 from datetime import datetime, timedelta
 
 
-def add_days(date: datetime, days: int) -> datetime:
+def add_days(date: datetime, amount: int) -> datetime:
     """
     Add months to a date.
     :param date: The date to add days to.
-    :param days: The number of days to add.
+    :param amount: The number of days to add.
     :return:
     """
     if not isinstance(date, datetime):
         raise TypeError("date must be of type datetime")
-    if not isinstance(days, int):
+    if not isinstance(amount, int):
         raise TypeError("days must be of type int")
-    if days < 0:
+    if amount < 0:
         raise ValueError("days must be greater than 0")
 
-    return date + timedelta(days=days)
+    return date + timedelta(days=amount)

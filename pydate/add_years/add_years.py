@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
 
-def add_years(date: datetime, years: int) -> datetime:
+def add_years(date: datetime, amount: int) -> datetime:
     """
     Add years to a date.
     :param date: The date to add weeks to.
@@ -10,9 +10,9 @@ def add_years(date: datetime, years: int) -> datetime:
     """
     if not isinstance(date, datetime):
         raise TypeError("date must be of type datetime")
-    if not isinstance(years, int):
+    if not isinstance(amount, int):
         raise TypeError("years must be of type int")
-    if years < 0:
+    if amount < 0:
         raise ValueError("years must be greater than 0")
 
-    return date.replace(year=date.year + years)
+    return date.replace(year=date.year + amount)

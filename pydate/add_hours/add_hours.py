@@ -1,16 +1,15 @@
 from datetime import datetime, timedelta
 
 
-def add_weeks(date: datetime, amount: int) -> datetime:
+def add_hours(date: datetime, amount : int) -> datetime:
     """
-    Add weeks to a date.
-    :param date: The date to add weeks to.
-    :param weeks: The number of weeks to add.
-    :return:
+    Add the specified number of hours to the given date.
     """
+
     if not isinstance(date, datetime):
         raise TypeError("date must be of type datetime")
     if not isinstance(amount, int):
         raise TypeError("weeks must be of type int")
-
-    return date + timedelta(weeks=amount)
+    
+    return date + timedelta(hours=amount)
+    
