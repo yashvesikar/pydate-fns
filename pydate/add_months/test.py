@@ -1,5 +1,5 @@
-from audioop import add
 import unittest
+from audioop import add
 from datetime import datetime
 
 from pydate import add_months
@@ -19,6 +19,7 @@ class TestAddMonths(unittest.TestCase):
         adds negative amount of months
         """
         raise NotImplementedError("TODO: implement add negative amount of months")
+
 
 if __name__ == "__main__":
     unittest.main()

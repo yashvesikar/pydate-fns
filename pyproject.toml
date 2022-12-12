@@ -9,3 +9,11 @@ build-backend = "setuptools.build_meta"
 [tool.pytest.ini_options]
 testpaths = "pydate"
 python_files = "test.py"
+
+# dev tools
+[tool.black]
+line-length = 150
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"

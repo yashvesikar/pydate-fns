@@ -22,9 +22,7 @@ class TestClosestTo(unittest.TestCase):
         works if the closest date from the given array is before the given date
         :return:
         """
-        date = datetime(
-            year=2014, month=6, day=2, hour=6, minute=30, second=4, microsecond=500
-        )
+        date = datetime(year=2014, month=6, day=2, hour=6, minute=30, second=4, microsecond=500)
         result = closest_to(
             date,
             [

@@ -10,15 +10,8 @@ help: ## This help.
 .DEFAULT_GOAL := help
 
 create-module: ## example: make create-module module=is_before
-	cd ./pydate \
-	&& mkdir $(module) \
-	&& cd $(module) \
-	&& touch __init__.py \
-	&& touch $(module).py \
-	&& touch test.py \
-	&& echo "from .$(module) import $(module)" > __init__.py \
-	&& echo "def $(module)(): pass" > $(module).py \ 
-	&& echo "class Test: pass" > test.py
+	cd ./scripts \
+	&& python create_module.py -m $(module)
 
 test-install: 
 	python -c "import pydate"

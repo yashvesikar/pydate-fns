@@ -21,9 +21,7 @@ if __name__ == "__main__":
     # navigate to sibling directory
     os.chdir(
         os.path.join(
-            os.path.dirname(
-                os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            ),
+            os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
             "date-fns",
             "src",
         )

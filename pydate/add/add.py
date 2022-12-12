@@ -25,9 +25,7 @@ def add(
         # all values are None or False-y
         return date
 
-    date_with_months = add_months(
-        date, (duration.get("years", 0) or 0) * 12 + (duration.get("months", 0) or 0)
-    )
+    date_with_months = add_months(date, (duration.get("years", 0) or 0) * 12 + (duration.get("months", 0) or 0))
 
     duration.pop("years", None)
     duration.pop("months", None)
