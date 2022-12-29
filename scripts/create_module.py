@@ -14,7 +14,6 @@ def main(name: str) -> None:
     with open(os.path.join(name, f"{name}.py"), "w") as f:
         f.write(
             f"""
-import unittest
 from datetime import datetime
 
 def {name}(date: datetime) -> datetime:
