@@ -3,9 +3,10 @@ name: Python package
 on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.9", "3.10", "3.11"]
 
@@ -15,11 +16,21 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+          cache: "pip"
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest
+          pip install pytest pytest-cov
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with pytest
         run: |
-          pytest
+          pytest --cov=pydate --cov-append --cov-report=lcov
+
+      - name: Test & publish code coverage
+        if: ${{ matrix.python-version == '3.9' }}
+        uses: paambaati/codeclimate-action@v3.2.0
+        env:
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+        with:
+          coverageLocations: |
+            ${{github.workspace}}/coverage.lcov:lcov
