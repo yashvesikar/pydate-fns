@@ -1,0 +1,1 @@
+from .is_friday import is_friday

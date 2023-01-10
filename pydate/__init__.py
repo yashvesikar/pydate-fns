@@ -15,6 +15,7 @@ from pydate.is_date import *
 from pydate.is_equal import *
 from pydate.is_exists import *
 from pydate.is_first_day_of_month import *
+from pydate.is_friday import *
 from pydate.start_of_day import *
 from pydate.sub_days import *
 from pydate.sub_months import *
