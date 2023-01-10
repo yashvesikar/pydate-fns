@@ -17,4 +17,7 @@ test-install:
 	python -c "import pydate"
 
 test: ## Run tests
-	pytest -v
+	pytest -v --cov=pydate --cov-append --cov-report=lcov
+
+update-readme: ## Update README.md
+	python scripts/update_readme_diff.py
