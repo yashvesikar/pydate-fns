@@ -13,6 +13,7 @@ from pydate.is_after import *
 from pydate.is_before import *
 from pydate.is_date import *
 from pydate.is_equal import *
+from pydate.is_exists import *
 from pydate.start_of_day import *
 from pydate.sub_days import *
 from pydate.sub_months import *

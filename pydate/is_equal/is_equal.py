@@ -6,7 +6,8 @@ def is_equal(date: datetime, to_compare: datetime) -> bool:
     Returns True if the given dates are equal.
 
     :param datetime date: datetime object
-    :return bool: _description_
+    :param datetime to_compare: datetime object to compare
+    :return bool: True if the given dates are equal, False otherwise
     """
     if not isinstance(date, datetime):
         raise TypeError("date must be an instance of datetime")
