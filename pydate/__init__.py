@@ -19,6 +19,7 @@ from pydate.is_friday import *
 from pydate.is_last_day_of_month import *
 from pydate.is_leap_year import *
 from pydate.is_monday import *
+from pydate.is_saturday import *
 from pydate.is_thursday import *
 from pydate.is_tuesday import *
 from pydate.is_wednesday import *
