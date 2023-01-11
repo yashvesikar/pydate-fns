@@ -20,7 +20,6 @@ class TestIsSameHour(unittest.TestCase):
 
         utc = ZoneInfo("UTC")
         est = ZoneInfo("EST")
-        ind = ZoneInfo("Asia/Kolkata")
         self.assertTrue(
             is_same_hour(datetime(2014, 9, 4, 18, 0, 0, tzinfo=est), datetime(2014, 9, 4, 23, 30, 0, tzinfo=utc)),
             "should return true if the given dates are the same",
