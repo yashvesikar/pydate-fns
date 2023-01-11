@@ -18,8 +18,14 @@ class TestIsSameDay(unittest.TestCase):
 
         utc = ZoneInfo("UTC")
         est = ZoneInfo("EST")
+        ind = ZoneInfo("Asia/Kolkata")
         self.assertTrue(
             is_same_day(datetime(2014, 9, 4, 18, 59, 0, tzinfo=est), datetime(2014, 9, 4, 23, 59, 0, tzinfo=utc)),
+            "should return true if the given dates are the same",
+        )
+
+        self.assertTrue(
+            is_same_day(datetime(2014, 9, 4, 18, 59, 0, tzinfo=est), datetime(2014, 9, 5, 4, 59, 0, tzinfo=ind)),
             "should return true if the given dates are the same",
         )
 
@@ -27,8 +33,8 @@ class TestIsSameDay(unittest.TestCase):
         utc = ZoneInfo("UTC")
         est = ZoneInfo("EST")
 
-        self.assertTrue(
-            is_same_day(datetime(2014, 9, 4, 18, 0, 0, tzinfo=est), datetime(2014, 9, 4, 23, 59, 0, tzinfo=utc)),
+        self.assertFalse(
+            is_same_day(datetime(2014, 9, 4, 18, 59, 0, tzinfo=est), datetime(2014, 9, 5, 1, 0, 0, tzinfo=utc)),
             "should return true if the given dates are the same",
         )
 
