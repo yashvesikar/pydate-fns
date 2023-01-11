@@ -20,6 +20,7 @@ from pydate.is_last_day_of_month import *
 from pydate.is_leap_year import *
 from pydate.is_monday import *
 from pydate.is_tuesday import *
+from pydate.is_wednesday import *
 from pydate.start_of_day import *
 from pydate.sub_days import *
 from pydate.sub_months import *
