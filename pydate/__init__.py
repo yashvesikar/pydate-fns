@@ -19,6 +19,7 @@ from pydate.is_friday import *
 from pydate.is_last_day_of_month import *
 from pydate.is_leap_year import *
 from pydate.is_monday import *
+from pydate.is_same_day import *
 from pydate.is_saturday import *
 from pydate.is_sunday import *
 from pydate.is_thursday import *
@@ -28,3 +29,4 @@ from pydate.start_of_day import *
 from pydate.sub_days import *
 from pydate.sub_months import *
 from pydate.to_date import *
+from pydate.to_naive import *
