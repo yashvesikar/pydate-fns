@@ -277,5 +277,5 @@ else:
 - [ ] weeksToDays
 - [ ] yearsToMonths
 - [ ] yearsToQuarters
-  <!-- /methods -->
-      </details>
+    <!-- /methods -->
+  </details>
