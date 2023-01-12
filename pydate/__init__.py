@@ -23,6 +23,7 @@ from pydate.is_same_day import *
 from pydate.is_same_hour import *
 from pydate.is_same_minute import *
 from pydate.is_same_month import *
+from pydate.is_same_second import *
 from pydate.is_same_year import *
 from pydate.is_saturday import *
 from pydate.is_sunday import *
