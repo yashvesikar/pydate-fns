@@ -1,3 +1,7 @@
+def snake_to_camel(name: str) -> str:
+    return "".join([i.capitalize() for i in name.split("_")])
+
+
 def main(name: str) -> None:
     # create a directory for the module
     # create a __init__.py file
@@ -28,7 +32,7 @@ import unittest
 from datetime import datetime
 from .{name} import {name}
 
-class Test{name}(unittest.TestCase):
+class Test{snake_to_camel(name)}(unittest.TestCase):
     def test_{name}(self) -> None:
         pass
 """

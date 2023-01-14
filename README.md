@@ -1,19 +1,38 @@
-# A Sensible Python Date Library
+# pydate-fns
+
+## A sensible Python date library
 
 ---
 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/pydate-fns)
 ![Code Climate coverage](https://img.shields.io/codeclimate/coverage/yashvesikar/pydate-fns)
 
-TODO: add documentation on how to use this library.
+## Installation
 
-Author: [Yash Vesikar](vesikar.com)
+```bash
+pip install pydate-fns
+```
 
+## Usage
 
-# date-fns parity
-<!-- methods -->
-method
+```python
+from datetime import datetime
+from pydate import is_weekday,
+
+if is_weekday(datetime.now()):
+    print("It's a weekday")
+else:
+    print("It's the weekend 😎")
+```
+
+<details>
+    <summary>date-fns methods parity</summary>
+    <!-- methods -->
+
+### method
+
 ---
+
 - [x] add
 - [ ] addBusinessDays
 - [x] addDays
@@ -124,29 +143,29 @@ method
 - [ ] intlFormatDistance
 - [x] isAfter
 - [x] isBefore
-- [ ] isDate
-- [ ] isEqual
-- [ ] isExists
-- [ ] isFirstDayOfMonth
-- [ ] isFriday
+- [x] isDate
+- [x] isEqual
+- [x] isExists
+- [x] isFirstDayOfMonth
+- [x] isFriday
 - [ ] isFuture
-- [ ] isLastDayOfMonth
-- [ ] isLeapYear
+- [x] isLastDayOfMonth
+- [x] isLeapYear
 - [ ] isMatch
-- [ ] isMonday
+- [x] isMonday
 - [ ] isPast
-- [ ] isSameDay
-- [ ] isSameHour
+- [x] isSameDay
+- [x] isSameHour
 - [ ] isSameISOWeek
 - [ ] isSameISOWeekYear
-- [ ] isSameMinute
-- [ ] isSameMonth
+- [x] isSameMinute
+- [x] isSameMonth
 - [ ] isSameQuarter
 - [ ] isSameSecond
 - [ ] isSameWeek
-- [ ] isSameYear
-- [ ] isSaturday
-- [ ] isSunday
+- [x] isSameYear
+- [x] isSaturday
+- [x] isSunday
 - [ ] isThisHour
 - [ ] isThisISOWeek
 - [ ] isThisMinute
@@ -155,12 +174,12 @@ method
 - [ ] isThisSecond
 - [ ] isThisWeek
 - [ ] isThisYear
-- [ ] isThursday
+- [x] isThursday
 - [ ] isToday
 - [ ] isTomorrow
-- [ ] isTuesday
+- [x] isTuesday
 - [ ] isValid
-- [ ] isWednesday
+- [x] isWednesday
 - [ ] isWeekend
 - [ ] isWithinInterval
 - [ ] isYesterday
@@ -258,4 +277,5 @@ method
 - [ ] weeksToDays
 - [ ] yearsToMonths
 - [ ] yearsToQuarters
-<!-- /methods -->
+    <!-- /methods -->
+  </details>
