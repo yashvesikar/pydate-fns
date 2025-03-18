@@ -7,6 +7,57 @@
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/pydate-fns)
 ![Code Climate coverage](https://img.shields.io/codeclimate/coverage/yashvesikar/pydate-fns)
 
+## Implementation Notes
+
+### Assumptions and Decisions
+
+1. DateTime Handling:
+   - All functions accept both datetime objects and timestamps (float/int)
+   - NaN values are handled gracefully, returning NaN for comparison functions
+   - Timestamps are treated as UTC timestamps for consistency
+
+2. Testing:
+   - Each function has comprehensive test coverage matching the JavaScript implementation
+   - Edge cases are explicitly tested (NaN, invalid dates, etc.)
+
+3. API Differences from date-fns:
+   - Python's datetime is used instead of JavaScript's Date object
+   - Some JavaScript-specific features (like Date.now()) are adapted to Python equivalents
+
+### Known Issues and Limitations
+
+1. Timezone handling may differ slightly from date-fns due to Python's datetime behavior
+2. Some JavaScript-specific date formatting options may not be available in Python
+
+### Implementation Details
+
+1. Timezone Handling:
+   - For calendar day calculations, we convert dates to UTC to ensure consistent behavior
+   - DST transitions are handled by using timestamp-based calculations and rounding
+   - All timezone-sensitive operations normalize dates to avoid edge cases
+
+2. Comparison Functions:
+   - Comparison results match JavaScript's behavior (-1, 0, 1)
+   - NaN handling follows JavaScript conventions
+   - Timestamp comparisons use millisecond precision for consistency
+
+3. Date Arithmetic:
+   - Calendar day calculations account for DST transitions
+   - Day boundaries are determined using start_of_day in UTC
+   - Month calculations use year and month components directly
+   - Calendar month differences ignore day of month and time components
+   - Minute and second arithmetic uses timedelta for accurate DST handling
+   - Week calculations support configurable week start (0-6 for Sunday-Saturday)
+   - Invalid dates return datetime(1,1,1) instead of JavaScript's Invalid Date
+
+4. Date Component Access:
+   - Maintain Python's conventions (e.g., months 1-12) while implementing JavaScript logic
+   - Invalid date inputs return NaN for numeric getters
+   - Getters preserve timezone information from input dates
+   - Documentation clearly states Python's conventions where they differ from JavaScript
+   - Timestamp functions handle both seconds (Unix time) and milliseconds (JS time)
+   - Microseconds are properly converted to milliseconds where needed
+
 ## Installation
 
 ```bash
@@ -39,37 +90,37 @@ else:
 - [x] addHours
 - [ ] addISOWeekYears
 - [x] addMilliseconds
-- [ ] addMinutes
+- [x] addMinutes
 - [x] addMonths
 - [ ] addQuarters
-- [ ] addSeconds
+- [x] addSeconds
 - [x] addWeeks
 - [x] addYears
 - [ ] areIntervalsOverlapping
 - [ ] clamp
 - [ ] closestIndexTo
 - [x] closestTo
-- [ ] compareAsc
-- [ ] compareDesc
+- [x] compareAsc
+- [x] compareDesc
 - [ ] constants
 - [ ] constructFrom
 - [ ] daysToWeeks
 - [ ] differenceInBusinessDays
-- [ ] differenceInCalendarDays
+- [x] differenceInCalendarDays
 - [ ] differenceInCalendarISOWeekYears
 - [ ] differenceInCalendarISOWeeks
-- [ ] differenceInCalendarMonths
+- [x] differenceInCalendarMonths
 - [ ] differenceInCalendarQuarters
-- [ ] differenceInCalendarWeeks
+- [x] differenceInCalendarWeeks
 - [ ] differenceInCalendarYears
 - [ ] differenceInDays
 - [ ] differenceInHours
 - [ ] differenceInISOWeekYears
-- [ ] differenceInMilliseconds
+- [x] differenceInMilliseconds
 - [ ] differenceInMinutes
 - [ ] differenceInMonths
 - [ ] differenceInQuarters
-- [ ] differenceInSeconds
+- [x] differenceInSeconds
 - [ ] differenceInWeeks
 - [ ] differenceInYears
 - [ ] eachDayOfInterval
@@ -110,31 +161,31 @@ else:
 - [ ] formatRelative
 - [ ] fp
 - [ ] fromUnixTime
-- [ ] getDate
+- [x] getDate
 - [ ] getDay
 - [ ] getDayOfYear
 - [ ] getDaysInMonth
 - [ ] getDaysInYear
 - [ ] getDecade
 - [ ] getDefaultOptions
-- [ ] getHours
+- [x] getHours
 - [ ] getISODay
 - [ ] getISOWeek
 - [ ] getISOWeekYear
 - [ ] getISOWeeksInYear
-- [ ] getMilliseconds
-- [ ] getMinutes
-- [ ] getMonth
+- [x] getMilliseconds
+- [x] getMinutes
+- [x] getMonth
 - [ ] getOverlappingDaysInIntervals
 - [ ] getQuarter
-- [ ] getSeconds
-- [ ] getTime
-- [ ] getUnixTime
+- [x] getSeconds
+- [x] getTime
+- [x] getUnixTime
 - [ ] getWeek
 - [ ] getWeekOfMonth
 - [ ] getWeekYear
 - [ ] getWeeksInMonth
-- [ ] getYear
+- [x] getYear
 - [ ] hoursToMilliseconds
 - [ ] hoursToMinutes
 - [ ] hoursToSeconds
@@ -256,7 +307,7 @@ else:
 - [ ] startOfSecond
 - [ ] startOfToday
 - [ ] startOfTomorrow
-- [ ] startOfWeek
+- [x] startOfWeek
 - [ ] startOfWeekYear
 - [ ] startOfYear
 - [ ] startOfYesterday
@@ -277,5 +328,5 @@ else:
 - [ ] weeksToDays
 - [ ] yearsToMonths
 - [ ] yearsToQuarters
-    <!-- /methods -->
-  </details>
+      <!-- /methods -->
+      </details>
