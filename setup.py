@@ -72,7 +72,7 @@ setup(
     author="Yash Vesikar",  # Optional
     # This should be a valid email address corresponding to the author listed
     # above.
-    author_email="yash@vesikar.com",  # Optional
+    author_email="yash+pydate@vesikar.com",  # Optional
     # Classifiers help users find your project by categorizing it.
     #
     # For a list of valid classifiers, see https://pypi.org/classifiers/
