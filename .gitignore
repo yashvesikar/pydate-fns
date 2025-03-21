@@ -1,6 +1,8 @@
+# testmon
+.testmondata
+
 # act local runner
 .secrets
-
 
 # test coverage
 coverage.lcov
