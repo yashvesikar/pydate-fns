@@ -1,26 +1,52 @@
 from datetime import datetime, timedelta
+from typing import Union
+import math
+from ..to_date import to_date
 
 
-def add_months(date: datetime, amount: int) -> datetime:
+def add_months(date: Union[datetime, int, float], amount: Union[int, float]) -> datetime:
     """
     Add months to a date.
     :param date: The date to add months to.
-    :param months: The number of months to add.
-    :return:
+    :param amount: The number of months to add.
+    :return: The new date with the months added.
     """
-    if not isinstance(date, datetime):
-        raise TypeError("date must be of type datetime")
-    if not isinstance(amount, int):
-        raise TypeError("months must be of type int")
+    dt = to_date(date)
+    
+    # Handle NaN amount
+    if isinstance(amount, float) and math.isnan(amount):
+        raise ValueError("Amount cannot be NaN")
+    
+    if not isinstance(amount, (int, float)):
+        raise TypeError("months must be of type int or float")
+    
+    amount = int(amount)
 
-    _months = date.month + amount
-    _years = date.year + _months // 12
-    _months = _months % 12
+    # Calculate total months and handle the 0-based vs 1-based month issue
+    total_months = dt.month - 1 + amount  # Convert to 0-based for calculation
+    _years = dt.year + total_months // 12
+    _months = (total_months % 12) + 1  # Convert back to 1-based
 
-    # If the day of the month is greater than the number of days in the new month,
-    # the day of the month is set to the last day of the new month.
-    end_of_desired_month = datetime(_years, _months + 1, 1) - timedelta(days=1)
-    if date.day > end_of_desired_month.day:
-        return end_of_desired_month
+    # Handle negative months
+    if _months <= 0:
+        _years -= 1
+        _months += 12
 
-    return date.replace(year=_years, month=_months)
+    # Get the last day of the target month
+    if _months == 12:
+        next_month_first = datetime(_years + 1, 1, 1)
+    else:
+        next_month_first = datetime(_years, _months + 1, 1)
+    
+    end_of_desired_month = next_month_first - timedelta(days=1)
+    
+    # If the day exceeds the target month's days, use the last day
+    if dt.day > end_of_desired_month.day:
+        return end_of_desired_month.replace(
+            hour=dt.hour,
+            minute=dt.minute,
+            second=dt.second,
+            microsecond=dt.microsecond
+        )
+
+    return dt.replace(year=_years, month=_months)
