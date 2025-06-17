@@ -1,14 +1,15 @@
 name: CI tests
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   ci-test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - uses: actions/checkout@v4
@@ -22,12 +23,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pytest-cov
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Test with pytest
+        shell: bash
+      - name: Test with pytest (Unix)
+        if: runner.os != 'Windows'
         run: |
-          make test
+          make test-fast
+      - name: Test with pytest (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          pytest
 
       - name: Test & publish code coverage
-        if: ${{ matrix.python-version == '3.9' }}
+        if: ${{ matrix.python-version == '3.11' && matrix.os == 'ubuntu-latest' }}
         uses: paambaati/codeclimate-action@v3.2.0
         env:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
