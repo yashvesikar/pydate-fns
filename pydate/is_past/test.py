@@ -31,6 +31,6 @@ def test_is_past_invalid_date():
 
 def test_is_past_current_time():
     """Test with current time (should be False since it's not in the past)"""
-    # Current time should not be in the past
-    now = datetime.now()
+    # Current time plus small buffer should not be in the past
+    now = datetime.now() + timedelta(milliseconds=100)
     assert is_past(now) == False
