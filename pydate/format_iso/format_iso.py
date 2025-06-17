@@ -30,8 +30,8 @@ def format_iso(date: Union[datetime, float, int]) -> str:
     """
     dt = to_date(date)
     
-    # Format the basic date and time components
-    iso_string = dt.strftime('%Y-%m-%dT%H:%M:%S')
+    # Format the basic date and time components with consistent 4-digit year padding
+    iso_string = f"{dt.year:04d}-{dt.month:02d}-{dt.day:02d}T{dt.hour:02d}:{dt.minute:02d}:{dt.second:02d}"
     
     # Add microseconds if present
     if dt.microsecond:
