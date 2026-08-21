@@ -1,3 +1,5 @@
+
+
 # pydate-fns
 
 ## A sensible Python date library
@@ -68,12 +70,12 @@ pip install pydate-fns
 
 ```python
 from datetime import datetime
-from pydate import is_weekday,
+from pydate import is_friday
 
-if is_weekday(datetime.now()):
-    print("It's a weekday")
+if is_friday(datetime.now()):
+    print("It's Friday")
 else:
-    print("It's the weekend 😎")
+    print("It's not Friday")
 ```
 
 <details>
@@ -212,7 +214,7 @@ else:
 - [x] isSameMinute
 - [x] isSameMonth
 - [ ] isSameQuarter
-- [ ] isSameSecond
+- [x] isSameSecond
 - [ ] isSameWeek
 - [x] isSameYear
 - [x] isSaturday
